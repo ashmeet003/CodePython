@@ -1,0 +1,37 @@
+import turtle
+myTurtle = turtle.Turtle()
+
+# Move turtle left without drawing; would help my A to be at centre of screen
+myTurtle.penup()
+myTurtle.goto(-110, 0)
+myTurtle.pendown()
+# Forms outer outline of A
+myTurtle.right(-60)
+myTurtle.forward(200)
+myTurtle.right(60)
+myTurtle.forward(20)
+myTurtle.right(60)
+myTurtle.forward(200)
+myTurtle.right(117)
+myTurtle.forward(25)
+myTurtle.right(62)
+myTurtle.forward(80)
+myTurtle.left(59)
+myTurtle.forward(90)
+myTurtle.left(60)
+myTurtle.forward(80)
+myTurtle.right(62)
+myTurtle.forward(25)
+# For inner triangle of A
+myTurtle.penup()
+myTurtle.goto(-44, 80)
+myTurtle.pendown()
+myTurtle.right(118)
+myTurtle.forward(85)
+myTurtle.right(118)
+myTurtle.forward(85)
+myTurtle.right(121)
+myTurtle.forward(88)
+
+screen = turtle.Screen()
+screen.exitonclick()

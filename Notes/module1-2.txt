@@ -1,0 +1,83 @@
+INTRO to PYTHON:
+
+Python is a high-level language 
+    - It provides abstractions and features that make code easier.
+    - emphasizes code readability
+    - uses significant indentation; meant to have semantic meaning
+    - off-side rule for indentation enforces a consistent and readable structure
+    - Uses OOP - codes around objects, which are instances of classes containing data(attributes) and behavior(mehtods)
+    - This promotes modular and reusable code.
+    - It is dynamically types - data types are inferred at run time: makes easier to write data.
+    - Has garbage collection: manages memory allocation and deallocation: so no manual memory management.
+    - Supports multiple programming paradigms: combine different programming approaches in same codebase
+    - = battery included language: cause comes with standard library.
+
+    - It is slower than c/c++(low level language) because it is interpreted language
+        It's compiler is a interpreter which interpret english language to machine language and then outputs to screen
+        Hence, needs more computing power
+
+- created in 1980's by Guido van Rossum
+
+BASICS:
+
+Variable: 
+    a named container for some data
+    A variable in Python is an object or class
+    can only start/include with letter or '_'
+    are case sensitive
+        name = "John"
+        print(name)
+    stores: numbers, strings, lists, and dictionaries, functions, objects.
+
+Data Types:
+    str: ""
+    int: 1
+    float: 12.33
+    bool: True, False # CAPITAL T/F; 0 = False
+    List Types
+    None
+
+Functions:
+    type(): returns type of specified object
+        dataType = type("name")
+    input(): allows user to input a value
+        input("Your age?: ) #input is always a string
+
+String Methods:
+    str.isalnum()
+    str.isalpha()
+    str.isdecimal()
+    str.isdigit()
+    str.islower()
+    str.isupper()
+    str.isnumeric()
+    str.ascii()
+    str.isidentifier()
+    str.isprintable()
+    str.isspace()
+    str.istitle()
+     
+    str.strip() #remove extra spaces
+    str.lower()
+    str.upper()
+    str.swapcase() #makes upper to lower and vice versa
+    str.replace()
+    find()
+
+String format method:
+    -insert variable to string
+    - format string
+        txt = "My name is {}, I'm {}".format{"John",36}
+        txt1 = "For only {price: .2f} dollars"
+        print(txt1.format{price = 49})
+    - 3 ways to input placeholders:
+        {},{}:      empty
+        {0}, {1}:   indexed
+        {strname}:  Named
+
+F string:
+    - prepend string with f 
+    - sub the value through variable
+        strName = "John Doe"
+        print(f"Hello, {strName}!")
+    

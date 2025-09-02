@@ -1,0 +1,168 @@
+List and Data Structures:
+
+- Lists []:
+    - store multiple values/types in a single variable
+    - add, remove, or modify elements
+    - collection of related items(names and numbers)
+    - provides -ve and +ve indexes
+        fruits = ["apple", "banana"] # [0],[1] or [-2],[-1]
+    - implementing stacks or queues
+    - Strengths:
+        - store multiple values in single variable
+        - support indexing, slicing
+        - data can be modified easily
+    - Limitations:
+        - is slow for larger datasets
+        - search is longer for unsorted list
+
+- Dictionaries {key : value}:
+    - known as associative arrays or hash maps
+    - are unordered collections of key-value pairs
+    - associate values with specific keys
+    - for tasks like mapping data or organizing configurations
+    - fast look up times and efficient key-based operations
+        student = {'name': 'Alice', 'age': 20}
+    - Strengths:
+        - provide fast lookup times by using keys as unique identifiers
+        - can store heterogeneous data types as values
+    - Limitations:
+        - order of elements may not be preserved
+        - keys must be unique
+
+- Sets {} or set():
+    - unordered collections of unique elements.
+    - uses {} or set() function.
+    - deals with unique elements or performing mathematical set operations
+    - automatically remove duplicates
+    - great for eliminating duplicates or finding common elements
+    - check for common elements between sets
+        fruits = {'apple', 'banana'}
+    - Strengths:
+        - Performs math like union/intersection/difference
+        - remove duplicates
+        - Set could help in identifying if element exists in it
+    - Limitations:
+        - no order is preserved ; so no index needed
+        - not suitable if duplicates is needed
+
+- Tuples ():
+    - offers immutable and ordered collection of values.
+    - great when in need of integrity and insure constant elements
+    - good to store fixed sequence of values
+    - to return multiple values from a function
+        person = ("Alice", 25, "Engineer")
+    - Strengths:
+        - good to store and pass around collection
+        - can be used as dictionary keys, unlike lists
+    - Limitations:
+        - no modification allowed
+        - no extensive built-in methods like lists
+
+- Useful functions:
+
+- List
+    - append():
+        listName.append(item)
+        or
+        for num in list2:
+            list1.append(num)
+    - remove():
+        listName.remove("item")
+    - pop():
+        - returns removed value & removes items from original list
+        popItem = listName.pop(index)
+    - del:
+        - remove an item or remove a slice of items
+        del listName(index)
+    - filter():
+        - creates new list based on condition
+        fruits = ["apple", "banana", "orange"]
+        new_fruits = [fruit for fruit in fruits if fruit != "banana"]
+        print(new_fruits)  # Output: ["apple", "orange"]
+    - index():
+        index = listName.index("element")
+    - count():
+        - returns num of specified element in list
+        count = listName.count("element")
+    - sort():
+        - ascending ordered
+        listName.sort()
+    - reverse():
+        - mirrors the list
+        listName.reverse()
+    - copy():
+        - copies and the newList references the same element as the original list
+        listCopy = list.copy()
+    - len():
+        length = len(listName)
+    - clear():
+        - makes list empty
+        listName.clear() #output: []
+    - min():
+        - prints minimum value
+        minimum = min(listName)
+    - max()
+        - prints max value
+        maximum = max(listName)
+
+- Dictionaries:
+    fruits = {"apple": 5, "banana": 3}
+    fruits["orange"] = 2
+    - update()
+        newFruits = {"grape" = 5}
+        fruits.update(newFruits)
+    - del:
+        del dictName["keyName"]
+    - pop():
+        - returns popped value
+        poppedValue = dictName.pop("keyName")
+    - dictionary comprehension:
+        - to return new dictionary
+        fruits = {"apple": 5, "banana": 3, "orange": 2}
+        new_fruits = {key: value for key, value in fruits.items() if key != "banana"}
+        print(new_fruits)  # Output: {"apple": 5, "orange": 2}
+
+    - keys():
+        - returns object with all keys of dict.
+        keys = fruits.keys()
+        print(keys)  # Output: dict_keys(["apple", "banana", "orange"])
+    - values():
+        - returns object with values
+        values = fruits.values()
+        print(values)  # Output: dict_values([5, 3, 2])
+    - items():
+        - returns object with key value pairs
+        items = fruits.items()
+        print(items)  # Output: dict_items([("apple", 5), ("banana", 3), ("orange", 2)])
+    - get():
+        - returns value associated with key or specify default value of key with no value
+        value = fruits.get("banana")
+        print(value)  # Output: 3
+        value = fruits.get("mango", 0)  # Default value if key is not found
+        print(value)  # Output: 0
+    - update():
+        - works like append
+        fruits = {"apple": 5, "banana": 3}
+        new_fruits = {"orange": 2, "mango": 4}
+        fruits.update(new_fruits)
+        print(fruits)  # Output: {"apple": 5, "banana": 3, "orange": 2, "mango": 4}
+    - clear():
+        - dictionary empty
+        dictName.clear()
+    - copy():
+        - returns a reference copy of dict.
+        dictCopy = dict.copy()
+    -len()
+        -Returns the number of key-value pairs in the dictionary.
+        length = len(fruits)
+    - in keyword:
+        -Checks if a specified key exists in the dictionary.
+        fruits = {"apple": 5, "banana": 3, "orange": 2}
+        if "banana" in fruits:
+           print("Banana is present!")
+    - fromkeys():
+        -Creates a new dictionary with default value
+        keys = ["apple", "banana", "orange"]
+        default_value = 0
+        fruits = dict.fromkeys(keys, default_value)
+        print(fruits)  # Output: {"apple": 0, "banana": 0, "orange": 0}
