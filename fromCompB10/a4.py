@@ -1,25 +1,25 @@
 # Ashmeet Kaur
 # CompB10 Fall2025
-# The program is based on Fahrenheit to Celsius and vice versa calculator
+# The program is based on calculating simple Interest and total amount
+# Formulas used: 'I = P * R * T' and 'A = P + I'
 
-#Welcomes user for temperature Calculator
-print("Welcome to Temperature Calculator")
+# Welcomes user to the calculator
+print("Welcome to Simple Interest Calculator")
 print("*"*60)
-
-# asks for user choice between F to C conversion or C to F
-# converted to int for if-else statement
-intOption = int(input("Enter 1 to choose 'F to C' or 2 for 'C to F': "))
 print("\n")
 
-if intOption == 1:                                                  # if user chooses F to C conversion
-    floatTemp = float(input("Enter temperature in Fahrenheit: "))   # asks user for temperature, converted to float
-    floatCel = (floatTemp - 32) * 5/9                               # formula for conversion
-    print(f"Temperature in Celsius: {floatCel:.2f}C")               # prints answer
+# user is asked for input and values are converted to float
+fPrincipal = float(input("Enter the principal amount: $"))
+fRate = float(input("Enter the rate of interest: "))
+fTime = float(input("Enter the time of investment (in years): "))
 
-elif intOption == 2:                                                # if user chooses F to C conversion
-    floatTemp = float(input("Enter temperature in Celsius: "))      # asks user for temperature, converted to float
-    floatFah = (floatTemp * 9/5) + 32                               # formula for conversion
-    print(f"Temperature in Fahrenheit: {floatFah:.2f}F")            # prints answer
+# Calculations are made
+fRate = fRate / 100                     # Rate of interest
+fInterest = fPrincipal * fRate * fTime  # Interest made
+fAmount = fPrincipal + fInterest        # Total Amount calculated
 
-else:                                                               # if user enters wrong option for conversion
-    print("Invalid input. Please enter 1 or 2")                     # prints 'Invalid choice' message
+# Prints final interest and amount
+print("*"*60)
+print("\n")
+print(f"Your interest is: ${fInterest:.2f}")
+print(f"Your final amount is: ${fAmount:.2f}")
