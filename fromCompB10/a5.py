@@ -2,6 +2,14 @@
 # CompB10 Fall2025
 # The program is based on Fahrenheit to Celsius and vice versa calculator
 
+# Show the UI
+print("#" * 80)
+print("#" * 9, " " * 60, "#"*9)
+print("#" * 9, "Advanced Calculator".center(60), "#" * 9)
+print("#" * 9, " " * 60, "#"*9)
+print("#" * 80)
+print("\n")
+
 #Welcomes user for temperature Calculator
 print("Welcome to Temperature Calculator")
 print("*"*60)

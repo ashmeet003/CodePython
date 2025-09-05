@@ -46,3 +46,12 @@ Branching Control Structures
     print("    {}".format(intVar))
 - For string:
     print("    "+ str)
+
+- Header decoration and spacing example:
+        # Show the UI
+        print("#" * 80)
+        print("#" * 9, " " * 60, "#"*9)
+        print("#" * 9, "Advanced Calculator".center(60), "#" * 9)
+        print("#" * 9, " " * 60, "#"*9)
+        print("#" * 80)
+        print("\n")
