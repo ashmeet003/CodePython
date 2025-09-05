@@ -1,0 +1,48 @@
+Branching Control Structures
+
+ if : elif : else
+
+ - if:
+    if(true):
+        print()
+    elif():
+        print
+    else:
+        print()
+
+- Some string validation methods:
+    - str.isdigit()
+    - str.isalpha()
+    - str.isalnum()
+    - str.isspace()
+    - str.isdecimal()
+    - str.isnumeric()
+
+- Validating floating point negative number
+        user_input = input("Enter a number: ")
+
+        # Remove one occurrence of the decimal point
+        temp_input = user_input.replace(".", "", 1)
+
+        # If the number is negative, remove the leading "-"
+        if temp_input.startswith("-"):
+           temp_input = temp_input[1:]
+
+        # Check if the remaining characters are digits
+        if temp_input.isdigit():
+           number = float(user_input)
+           print(f"Valid float: {number}")
+        else:
+           print("Invalid input! Please enter a valid number.")
+
+- Random number:
+    import random
+    intSecretNumber = random.randint(1,10)
+
+- to print int variable:
+    print("   ", intVar)
+    print(intVar)
+    print(f"   {intVar}")
+    print("    {}".format(intVar))
+- For string:
+    print("    "+ str)
