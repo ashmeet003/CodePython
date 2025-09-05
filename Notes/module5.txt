@@ -39,6 +39,10 @@ Branching Control Structures
     import random
     intSecretNumber = random.randint(1,10)
 
+- Time:
+    import time
+    time.sleep(1)
+
 - to print int variable:
     print("   ", intVar)
     print(intVar)
