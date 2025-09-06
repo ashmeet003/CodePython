@@ -37,7 +37,7 @@ myturtle.end_fill()
 ##### END Drawing the center of the flower #######
 
 ##### START Drawing the inner center of the flower #######
-myturtle.right(90) # to shift direction to x axis
+myturtle.right(90) # to shift direction to x-axis
 myturtle.backward(intDotSize - intInnerDotsize) # to centralize the inner circle
 myturtle.left(90)
 myturtle.fillcolor("#ffd11a")
