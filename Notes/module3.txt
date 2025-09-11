@@ -7,6 +7,7 @@ List and Data Structures:
     - provides -ve and +ve indexes
         fruits = ["apple", "banana"] # [0],[1] or [-2],[-1]
     - implementing stacks or queues
+    - list inside a list, inside a list is called data structure, could also represent tree.
     - Strengths:
         - store multiple values in single variable
         - support indexing, slicing
@@ -28,6 +29,7 @@ List and Data Structures:
     - Limitations:
         - order of elements may not be preserved
         - keys must be unique
+    - Nested dictionary: {"key": {"key": value}}
 
 - Sets {} or set():
     - unordered collections of unique elements.
