@@ -1,0 +1,12 @@
+********* Custom Functions ***********
+
+Why?
+    : Reusability, Readability, and Maintainability
+
+def funcName():
+    - def: keyword to create custom functions
+
+return keyword
+
+Optional parameters:
+def name(strName = "Bill", intAge = 7):
