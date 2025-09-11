@@ -14,10 +14,12 @@ print(liCard) # prints list
 print("\n\n") # adds two line breaks
 
 # personalCard uses multi-line strings and f string
-personalCard = f"""Here is your card:
+personalCard = f"""
+Here is your card:
 Name: {liCard[0]}
 Phone: {liCard[1]}
 Email: {liCard[2]}
-Birthday: {liCard[3]}"""
+Birthday: {liCard[3]}
+"""
 
 print(personalCard) # prints personalCard
