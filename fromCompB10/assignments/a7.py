@@ -31,17 +31,17 @@ def userGuess():
     while True:
         strUserChoice = input("\nEnter 'r' - rock, 'p' - paper or 's' - scissor: ").strip().lower()
         if(strUserChoice == "r"):           # if user input == r (rock)
-            strChoice = "r"                 # stores input
-            print("You chose rock.")        # prints user's choice
-            break                           # break from loop if valid input is entered
+            strChoice = "r"                     # stores input
+            print("You chose rock.")            # prints user's choice
+            break                               # break from loop if valid input is entered
         elif(strUserChoice == "p"):         # if user input == p (paper)
             strChoice = "p"
             print("You chose paper.")
-            break                           # break from loop if valid input is entered
+            break                               # break from loop if valid input is entered
         elif(strUserChoice == "s"):         # if user input == s (scissor)
             strChoice = "s"
             print("You chose scissor.")
-            break                           # break from loop if valid input is entered
+            break                               # break from loop if valid input is entered
         else:                               # loop continues if invalid input is entered
             print("Invalid input entered. Try again!")
     return strChoice                        # return valid user choice
@@ -53,8 +53,8 @@ def userGuess():
 def winner(userChoice, compChoice):
     strOutput = ""                          # stores outcome of round
     if (userChoice == compChoice):          # if user and computer chooses same item
-        strOutput = "tie"                   # output stores tie
-        print("It's a tie!")                # output is declared
+        strOutput = "tie"                       # output stores tie
+        print("It's a tie!")                    # output is declared
     elif(userChoice == "r"):                # if user enters r (rock)
         if(compChoice == "p"):                  # if computer chooses p (paper)
             strOutput = "computer"              # computer wins
@@ -117,11 +117,11 @@ while True:
             print("You get one extra chance!")            # prints 'Tie' round message
 
     if(intUserRound == intNumRounds):                 # if number of rounds user wins == 2
-        print("\nCongratulations, you won!")          # user wins and scores are displayed
+        print("\nCongratulations, you won!")              # user wins and scores are displayed
         print(f"Your score: {intUserRound}")
         print(f"Computer score: {intCompRound}")
     elif(intCompRound == intNumRounds):               # if number of rounds computer wins == 2
-        print("\nSorry, you lose, computer wins!")    # computer wins and scores are displayed
+        print("\nSorry, you lose, computer wins!")        # computer wins and scores are displayed
         print(f"Your score: {intUserRound}")
         print(f"Computer score: {intCompRound}")
 
