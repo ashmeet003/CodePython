@@ -1,0 +1,41 @@
+************* Advanced String Processing ****************
+
+String Concatenation:
+    result = str1 + "" + str2 #no spaces added
+    str1 += "" + str2
+    str1 = "".join(list)
+
+String Slicing:
+    [start:end:step-opt]
+    Start in inclusive
+    end-1 is inclusive
+    step: in increment between steps like every other index or so
+    text[1:7]
+    text[::-1] # reverses the string
+    text[12:5:-1] substring in reverse order
+
+String length:
+    len(text)
+
+Replace Strings:
+    newStr = ogStr.replace(oldSubStr, newSubStr)
+    **Does not replace old string
+    **Gives new string with changes
+
+Removing Whitespaces:
+    strip()
+    lstrip(): removes left whitespaces
+    rstrip(): removes right whitespaces
+    text.strip("!"): removes a character(s)
+
+Searching within a strip:
+    find()
+        str.find(subStr, start-opt, end-opt)
+        # output: -1 if substring not found
+    index() : returns index of str
+            : error raised
+
+Splitting String:
+    str.split(delimiter)
+    : splits into a list
+    : or into a list where delimiter is found
