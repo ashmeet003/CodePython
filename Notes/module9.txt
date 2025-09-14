@@ -1,0 +1,16 @@
+************************    Algorithms     ***************************
+
+Algorithms:
+    - a set of instruction
+    - helps to solve a problem in systematic order
+    - structured approach to problem-solving
+
+To develop an algorithm:
+    - understand the problem
+    - brak down the problem
+    - designing the algorithm
+    - implementing the algorithm
+    - test debug
+    - optimize
+    - reassemble
+    - documentation
