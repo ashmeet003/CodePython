@@ -20,15 +20,16 @@ def emailsFound(strText):
     listText = strText.split(" ")               # splits email using one white space into a list
     listEmail = []                              # list to store emails from the listText
     for word in listText:                       # checks every word in listText
-        if(word.find(".com") != -1):            # if ".com" is found as substring
-            if not isPresent(word, listEmail):      # if word is not already present in new listEmail
-                listEmail.append(word)                  # append the word to list
-        if (word.find(".us") != -1):            # if ".us" is found as substring
-            if not isPresent(word, listEmail):      # if word is not already present in new listEmail
-                listEmail.append(word)                  # append the word to list
-        if (word.find(".org") != -1):           # if ".us" is found as substring
-            if not isPresent(word, listEmail):      # if word is not already present in new listEmail
-                listEmail.append(word)                  # append the word to list
+        if(word.find("@") != -1):               # if string has @ sign in it
+            if(word.find(".com") != -1):            # if ".com" is found as substring
+                if not isPresent(word, listEmail):      # if word is not already present in new listEmail
+                    listEmail.append(word)                  # append the word to list
+            if (word.find(".us") != -1):            # if ".us" is found as substring
+                if not isPresent(word, listEmail):      # if word is not already present in new listEmail
+                    listEmail.append(word)                  # append the word to list
+            if (word.find(".org") != -1):           # if ".us" is found as substring
+                if not isPresent(word, listEmail):      # if word is not already present in new listEmail
+                    listEmail.append(word)                  # append the word to list
     return listEmail                            # returns list of email found in string
 
 
@@ -54,6 +55,7 @@ def isPresent(strEmail, listEmail):
 # replaces any possible delimiter such as [], ()
 # which could hinder splitting text using single whitespace
 def cleanText(strText):
+    strText.strip()
     strText = strText.replace("(", " ")
     strText = strText.replace(")", " ")
     strText = strText.replace("[", " ")
