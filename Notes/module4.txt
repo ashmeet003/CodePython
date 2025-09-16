@@ -1,1 +1,28 @@
-upcoming set of notes
+**********************  Type Conversion *****************************
+
+float()
+str()
+int()
+
+while converting from float to int, decimal pints gets dropped not rounded up
+12.3  =  12
+12.9  =  12
+
+=>>>Bool conversion
+0 is false
+1, 100, "bill" is true
+"0", [0] is true
+"", [], {}, NULL, None is false
+
+************** Operators *****************
+
+** = exponent
+    2**4 = 16
+/  =  division
+    4/2 = 2.0
+// =  floor division
+    4//2 = 2
+
+**************** Order of Operations ********************
+
+PEMDAS: Parentheses, Exponents, Multiplication, Division, Addition, Subtraction
