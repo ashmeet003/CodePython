@@ -37,15 +37,27 @@ def longWords(liWords):
             intNumCount += 1
     return(intNumCount)
 
+
+# main program begins
+print("*"*150 + "\n")
+print("Welcome to Text sophistication Algorithm!\n")
+print("The program uses following parameters to calculate score for text difficulty levels:")
+print("1. Sentence count")
+print("2. Unique word count")
+print("3. Average word length")
+print("4. Long word count (words with length > 7)")
+print("\n" + "*"*150)
 # the following program get a text from user and stores it into a list
 # user can choose to enter more text if needed
 liText = []
+intTextCount = 1
 while True:
-    strText = input("Enter the text: ").strip()
+    strText = input(f"Enter the text#{intTextCount}: ").strip()
     liText.append(strText)
 
     reType = input("Do you want to enter another text snippet? y/n: ").strip().lower()
     if reType == "y":
+        intTextCount += 1
         continue
     else:
         break
@@ -82,12 +94,19 @@ for index in range(len(liText)):
 
 
 # Sort by values in descending order
+# sorted takes a value returns a new sorted list
+# key=lambda item[] => takes a tuple and returns the 'values' section and sorts it accord.
+# reverses helps sort in descending order
 sorted_items = sorted(diScores.items(), key=lambda item: item[1], reverse=True)
+"""
+This is another method to sort dictionary using values, but uses operator library
+import operator
+sorted_items = sorted(diScores.items(), key=operator.itemgetter(1), reverse=True)"""
 # Convert back to a dictionary
 sorted_dict = dict(sorted_items)
 
 # the following set of code displays sorted dictionary
-print("*"*150 + "\n")
+print("-"*75 + "\n")
 print("Difficulty levels of text(s) entered; highest to lowest:")
 intNum = 1
 for key, value in sorted_dict.items():
