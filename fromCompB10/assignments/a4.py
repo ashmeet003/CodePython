@@ -19,7 +19,9 @@ fInterest = fPrincipal * fRate * fTime  # Interest made
 fAmount = fPrincipal + fInterest        # Total Amount calculated
 
 # Prints final interest and amount
-print("\n" + "*"*60 + "\n")
+print("\n" + "-"*60 + "\n")
 print("Your Results:")
 print(f"Your interest is: ${fInterest:.2f}")
 print(f"Your final amount is: ${fAmount:.2f}")
+print("\nThank you for using calculator.")
+print("*"*81)
