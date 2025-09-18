@@ -22,6 +22,7 @@ while True:
     if(intUserGuess == intSecretNumber):                                        # prints if input is equal to random number
         print("You got the number right!")
         print("Computer's number is: " + str(intSecretNumber))
+        print("\n" + "*"*60)
         rePlay = input("\nDo you want to play again? (y/n): ").strip().lower()  #asks the user if wants to play again
         if(rePlay == "y" or rePlay == "yes"):                                   # if yes, a secret random number is chosen and game continues
             intSecretNumber = random.randint(1, 10)
