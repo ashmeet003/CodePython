@@ -62,3 +62,16 @@ def divide_numbers():
 
 # Testing the divide_numbers function
 divide_numbers()
+
+
+**********  Error Types   ************************
+SyntaxError
+NameError
+TypeError
+IndexError
+KeyError
+AttributeError
+ValueError
+ZeroDivisionError
+ImportError
+IndentationError
