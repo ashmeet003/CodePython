@@ -1,0 +1,64 @@
+*****************   Exception Handling  ***********************
+
+- important for robust and reliable code.
+try:
+   # Code that might raise an exception
+except ExceptionType:
+   # Code to handle the exception
+
+Example: if no exception occurred else block is allocated
+try:
+   result = 10 / 2  # No exception
+except ZeroDivisionError:
+   print("Error: Division by zero is not allowed.")
+else:
+   print("Result:", result)
+
+
+-> finally block is executed as mandatory code to be executed
+try:
+   file = open("data.txt", "r")
+   # Code to read the file
+except FileNotFoundError:
+   print("Error: File not found.")
+finally:
+   file.close()  # Close the file regardless of exception occurrence
+
+
+-> raise is to manually raise an exception
+def validate_age(age):
+   if age < 0:
+       raise ValueError("Age cannot be negative.")
+   elif age > 120:
+       raise ValueError("Invalid age.")
+   else:
+       print("Valid age.")
+
+try:
+   validate_age(150)
+except ValueError as ve:
+   print("Error:", str(ve))
+
+
+****************    Data Validation ******************
+1. Look Before You Leap (LBYL): check first to avoid error
+2. Easier to Ask for Forgiveness than Permission (EAFP): try first use exception handling
+def divide_numbers():
+   try:
+       numerator = int(input("Enter the numerator: "))
+       denominator = int(input("Enter the denominator: "))
+
+       if denominator == 0:
+           raise ValueError("Denominator cannot be zero.")
+
+       result = numerator / denominator
+       print("Result:", result)
+   except ValueError as ve:
+       print("Value Error:", str(ve))
+   except ZeroDivisionError:
+       print("Error: Division by zero is not allowed.")
+   except Exception as e:
+       print("An error occurred:", str(e))
+
+# Testing the divide_numbers function
+divide_numbers()
