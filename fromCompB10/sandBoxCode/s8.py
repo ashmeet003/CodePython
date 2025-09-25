@@ -83,7 +83,17 @@ def longWords(strText):
     for index in range(len(liWords) - 1, -1, -1):  # from last → first
         if len(liWords[index]) < 7:
             liWords.pop(index)
-
+    #another way of doing this: (not so fancy above)
+    """
+    while (x < len(list)):
+        if (count == 1):    #problem of index popping of hence x leads to next index
+            x -= 1          # which is not the current index we are hoping for is solved
+            count = 0       # as a index is popped, x takes a back step and goes back to current index
+        if (list[x] < 5):   
+            list.pop(x)
+            count += 1
+        x += 1
+    """
     print(f"{len(liWords)} words with length > 7:")
     print(liWords)
     return(len(liWords))
