@@ -1,0 +1,38 @@
+****************    Python Modules  ***************************
+
+-A module file contains functions, classes, and Variables.
+- a regular .py file which can be imported in other files too.
+
+functions/variables in imported module needs to called using dot operator
+
+import myModule
+myModule.greet()
+myModule.x
+
+- 'from' keyword could be used to import specific functionality from the code module
+    Through this method=> dot is not needed
+    However, if same name is used elsewhere in the code, namesapce conflict could occur
+
+    from myModule import greet, x
+    greet()
+    print(x)
+
+- '_name_' keyword stores name for imported module.
+    During codes execution this _name_ chages to _main_
+
+    from my_module import greet, PI
+
+    greet("Bob")
+    print(PI)# my_module.py
+    def greet(name):
+       print(f"Hello, {name}!")
+    if __name__ == "__main__":
+       # This code will only run when the module is executed as the main program
+       greet("Alice")
+
+*********
+Be cautious of namespace conflict
+NameError if you forgot to import module but still using its functions
+import errors could occur in case of Circular Dependencies
+    - which occurs due to two or more modules depend on each other
+*************
