@@ -36,3 +36,53 @@ NameError if you forgot to import module but still using its functions
 import errors could occur in case of Circular Dependencies
     - which occurs due to two or more modules depend on each other
 *************
+
+********************    Some common Modules     ***************************
+math:
+    math.sqrt()
+    math.pi
+    math.sin()
+
+random:
+    random.randint()
+    random.choice()
+
+os: # operating system related functions for file and directory
+    os.getcwd() #current working directory
+    os.listdir('/path') # list if files and directories in given path
+
+datetime:
+    now = datetime.datetime.now()
+    now         # current date and time
+    now.year    # current year
+    now.strftime('%Y-%m-%d %H:%M:%S') # formatted date and time
+
+json: # for JavaScript Object Notation
+    data = '{"name": "John", "age": 30}'
+    parsed_data = json.loads(data) #string turned into dictionary
+    print(parsed_data['name'])   # Output: John
+
+    person = {'name': 'Alice', 'age': 25}
+    json_data = json.dumps(person) # object turned into string
+    print(json_data)             # Output: {"name": "Alice", "age": 25}
+
+urllib: # for url's and HTTP requests
+import urllib.request
+response = urllib.request.urlopen('https://www.example.com')
+html = response.read()
+print(html)                  # Output: HTML content of the webpage
+
+***************************************************************************
+
+dir():
+    returns sorted list of object
+    or with no argumented, returns list of names in current scope.
+    dir([object])
+
+    my_list = [1, 2, 3]
+    print(dir(my_list))
+    # returns attributes like append(), clear(), count() related to object
+
+    import math
+    print(dir(math))
+    # returns sqrt(), sin(), cos(), pi....
