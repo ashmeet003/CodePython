@@ -8,6 +8,7 @@
 # start with some $$
 flSavBal = 500.99
 flChkBal = 100.31
+diAccounts = {"Savings": 500.99, "Checking": 100.31}
 
 # Welcome UI Message
 print("#"*80)
@@ -29,20 +30,24 @@ while (True):
 
         # asks user to input amount to deposit and converted into float
         flAmount = float(input("Enter the amount you want to deposit: $"))
-        strChoice = input("Choose an option: 1 - 'checking' or 2 - 'savings': ").strip()
+        print("Choose an account to deposit your money:")
+        intCount = 1
+        for key in diAccounts:
+            print(f"{intCount}: {key}")
+            intCount += 1
+        strChoice = input("Enter your option: ").strip().lower()
 
-        if (strChoice == "1"):          # if chosen account is checking
-            flChkBal += flAmount
-            print("Amount Deposited!")
-        elif (strChoice == "2"):        # if chosen account is savings
-            flSavBal += flAmount
-            print("Amount Deposited!")
+        if strChoice in diAccounts:
+            diAccounts[strChoice] += flAmount
+            print("Amount deposited successfully!")
         else:                           # if enters wrong number for account selection
-            print("You entered Invalid account option!")
+            print("You entered Invalid account!")
 
         print("Your balance is:")       # shows balance at the end
         print("Checking".ljust(9) + ": $" + str(flChkBal).rjust(12))
         print("Savings".ljust(9) + ": $" + str(flSavBal).rjust(12))
+        for key, value in diAccounts.items():
+            print(key.ljust(12) + ": $" + str(value).rjust(12))
 
 
 
