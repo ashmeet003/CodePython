@@ -20,12 +20,12 @@ print("")
 while (True):
 
     #Show the menu options
-    print("Choose an option: 1 - Deposit, 2 - Withdrawal, 3 - Check Balance")
+    print("Choose an option: 1 - Deposit, 2 - Withdrawal, 3 - Check Balance, 4 - Open new account")
     # Ask the user for their choice
-    strMenu = input("Your choice: ")
+    strMenu = input("Your choice: ").strip().lower()
 
     # works to deposit money
-    if (strMenu == "1"):
+    if (strMenu == "1" or strMenu == "deposit"):
         print("You want to make a deposit.\n")
 
         # asks user to input amount to deposit and converted into float
@@ -35,7 +35,7 @@ while (True):
         for key in diAccounts:
             print(f"{intCount}: {key}")
             intCount += 1
-        strChoice = input("Enter your option: ").strip().lower()
+        strChoice = input("Enter your option: ").strip().title()
 
         if strChoice in diAccounts:
             diAccounts[strChoice] += flAmount
@@ -44,49 +44,59 @@ while (True):
             print("You entered Invalid account!")
 
         print("Your balance is:")       # shows balance at the end
-        print("Checking".ljust(9) + ": $" + str(flChkBal).rjust(12))
-        print("Savings".ljust(9) + ": $" + str(flSavBal).rjust(12))
         for key, value in diAccounts.items():
-            print(key.ljust(12) + ": $" + str(value).rjust(12))
+            print(key.ljust(12) + ": $" + f"{value:.2f}".rjust(12))
 
 
 
 
-    elif (strMenu == "2"):
+    elif (strMenu == "2" or strMenu == "withdrawal"):
         print("You want to make a withdrawal.\n")
 
         # asks user to input amount to withdraw and converted into float
         flAmount = float(input("Enter the amount you want to deposit: $"))
-        strChoice = input("Choose an option: 1 - 'checking' or 2 - 'savings': ").strip()
+        print("Choose an account to deposit your money:")
+        intCount = 1
+        for key in diAccounts:
+            print(f"{intCount}: {key}")
+            intCount += 1
+        strChoice = input("Enter your option: ").strip().title()
 
-        if (strChoice == "1"):              # if user chooses checking account
-            if (flChkBal > flAmount):       # checks if amount to be withdrawn is present in account or not
-                flChkBal -= flAmount        # updates checking account balance
-                print("Amount Withdrawn!")
-            else:                           # if withdraw amount > amount present in account
+        if(strChoice in diAccounts):
+            if(diAccounts[strChoice] > flAmount):
+                diAccounts[strChoice] -= flAmount
+                print("Amount withdrawn successfully!")
+            else:
                 print("You do not have enough balance to withdraw!")
-        elif (strChoice == "2"):            # if user chooses savings account
-            if(flSavBal > flAmount):        # checks if amount to be withdrawn is present in account or not
-                flSavBal -= flAmount        # updates savings account balance
-                print("Amount Withdrawn!")
-            else:                           # if withdraw amount > amount present in account
-                print("You do not have enough balance to withdraw!")
-        else:                               # if enters wrong number for account selection
-            print("You entered Invalid account option!")
+        else:
+            print("You entered invalid account.")
 
-        print("Your balance is:")           # shows balance at the end
-        print("Checking".ljust(9) + ": $" + str(flChkBal).rjust(12))
-        print("Savings".ljust(9) + ": $" + str(flSavBal).rjust(12))
+
+        print("Your balance is:")       # shows balance at the end
+        for key, value in diAccounts.items():
+            print(key.ljust(12) + ": $" + f"{value:.2f}".rjust(12))
 
 
 
 
-    elif (strMenu == "3"):                  # Shows account Balance
+    elif (strMenu == "3" or strMenu == "check balance"):                  # Shows account Balance
         print("You want to check a balance.\n")
-        print("Your balance is:")
-        print("Checking".ljust(9) + ": $" + str(flChkBal).rjust(12))
-        print("Savings".ljust(9) + ": $" + str(flSavBal).rjust(12))
+        print("Your balance is:")       # shows balance at the end1
+        for key, value in diAccounts.items():
+            print(key.ljust(12) + ": $" + f"{value:.2f}".rjust(12))
 
+
+    elif(strMenu == "4" or strMenu == "open new account"):
+        openAccount = input("You wish to open new account. yes - y or no -n?:").strip().lower()
+        if (openAccount == "y" or openAccount == "yes"):
+            accountName = input("Enter the account name: ").strip().title()
+            diAccounts[accountName] = 0.0
+            print("Account opened successfully!")
+
+        print("Your balance is:")       # shows balance at the end1
+        for key, value in diAccounts.items():
+            #print(key.ljust(12) + ": $" + str(value).rjust(12))
+            print(key.ljust(12) + ": $" + f"{value:.2f}".rjust(12))
 
 
     else:
