@@ -10,3 +10,8 @@ return keyword
 
 Optional parameters:
 def name(strName = "Bill", intAge = 7):
+
+-global keyword, causes an object to act like global
+like x inside a function, with keyword golbal, would modify x's value globally
+    global x
+    x=3
