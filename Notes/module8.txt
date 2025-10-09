@@ -41,3 +41,6 @@ Splitting String:
     str.split(delimiter)
     : splits into a list
     : or into a list where delimiter is found
+
+Count:
+    str.count(" ") # returns number of spaces in string
