@@ -32,6 +32,8 @@ Searching within a strip:
     find()
         str.find(subStr, start-opt, end-opt)
         # output: -1 if substring not found
+        # returns index of first character of string to be found
+        # example in find.py
     index() : returns index of str
             : error raised
 
