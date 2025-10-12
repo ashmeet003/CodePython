@@ -72,12 +72,7 @@ def uniqueWords(strText):
 
 
 # the function returns length and prints list of words with length > 7
-def longWords(strText):
-    liWords = []
-    resultTuple = uniqueWords(strText)
-    intLen = resultTuple[0]
-    liWords = resultTuple[1]
-
+def longWords(liWords):
     # in list of unique words ; remove (using list.pop( ))any words that
     # have a length of less than 7. (len(strWord) < 7).
     for index in range(len(liWords) - 1, -1, -1):  # from last → first
@@ -106,16 +101,15 @@ print("For Lincoln's Text:")
 #  This is where we call the function to clean out the text.
 strLinc = cleanText(strLinc)
 # Here we have a few different operations done on the Lincoln text.
-intLincTotChars = len(strLinc)
-liLincWords = strLinc.split(" ")
-intLincNumWords = len(liLincWords)
-flLincAvgWordLength = intLincTotChars / intLincNumWords
-intLincNumUnique = uniqueWords(strLinc)[0]
-liLincUniqueWords = uniqueWords(strLinc)[1]
+intLincTotChars = len(strLinc)                                      # total characters in cleaned string
+liLincWords = strLinc.split(" ")                                    # string split into list
+intLincNumWords = len(liLincWords)                                  # total number of words in string
+flLincAvgWordLength = intLincTotChars / intLincNumWords             # average word length
+liLincUniqueWords = uniqueWords(strLinc)[1]                         # list of unique words in string
+intLincLongWordLen = longWords(liLincUniqueWords)                   # stores length of list with words > 7
 # Here is some output to get you started,using the Lincoln Text.
 print(f"The Lincoln text has {intLincTotChars} characters.")
 print(f"The Lincoln text has an average word length of {flLincAvgWordLength:.4f} characters.")
-intLincLongWordLen = longWords(strLinc)  # stores length of list with words > 7
 
 
 # starts Swift's section
@@ -125,16 +119,15 @@ print("For Swift's Text:")
 #  This is where we call the function to clean out the text.
 strSwift = cleanText(strSwift)
 # Here we have a few different operations done on the Swift text.
-intSwiftTotChars = len(strSwift)
-liSwiftWords = strSwift.split(" ")
-intSwiftNumWords = len(liSwiftWords)
-flSwiftAvgWordLength = intSwiftTotChars / intSwiftNumWords
-intSwiftNumUnique = uniqueWords(strSwift)[0]
-liSwiftUniqueWords = uniqueWords(strSwift)[1]
+intSwiftTotChars = len(strSwift)                                    # total characters in cleaned string
+liSwiftWords = strSwift.split(" ")                                  # string split into list
+intSwiftNumWords = len(liSwiftWords)                                # total number of words in string
+flSwiftAvgWordLength = intSwiftTotChars / intSwiftNumWords          # average word length
+liSwiftUniqueWords = uniqueWords(strSwift)[1]                       # list of unique words in string
+intSwiftLongWordLen = longWords(liSwiftUniqueWords)                 # stores length of list with words > 7
 # Here is some output to get you started,using the Swift Text.
 print(f"The Swift text has {intSwiftTotChars} characters.")
 print(f"The Swift text has an average word length of {flSwiftAvgWordLength:.4f} characters.")
-intSwiftLongWordLen = longWords(strSwift)   # stores length of list with words > 7
 
 
 # comparison of values to determine intelligence level
@@ -146,21 +139,21 @@ print("")
 lincScore = 0
 swiftScore = 0
 print("Results:")
-if(intLincTotChars > intSwiftTotChars):
+if(intLincTotChars > intSwiftTotChars):                                 # compares number of characters
     lincScore += 1
     print("1. LincText has more characters than SwiftText.")
 else:
     swiftScore += 1
     print("1. SwiftText has more characters than LincText.")
 
-if(flLincAvgWordLength > flSwiftAvgWordLength):
+if(flLincAvgWordLength > flSwiftAvgWordLength):                         # compares average word length
     lincScore += 1
     print("2. LincText has more average word length than SwiftText.")
 else:
     swiftScore += 1
     print("2. SwiftText has more average word length than LincText.")
 
-if(intLincLongWordLen > intSwiftLongWordLen):
+if(intLincLongWordLen > intSwiftLongWordLen):                           # compares number of unique words with length>7
     lincScore += 1
     print("3. LincText has more more words greater than length 7 than SwiftText.")
 else:
