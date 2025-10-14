@@ -16,7 +16,7 @@ listEmail = ["bill@network.us","george.smith@google.com", "test@gmail.com"]
 # Do this assignment WITHOUT the global keyword
 # Function that takes in a string, and returns a list of emails found.
 # this function assumes that only emails have their ending as ".com", ".us", ".org"
-def emailsFound(strText):
+"""def emailsFound(strText):
     listText = strText.split(" ")               # splits email using one white space into a list
     listEmail = []                              # list to store emails from the listText
     for word in listText:                       # checks every word in listText
@@ -31,6 +31,55 @@ def emailsFound(strText):
                 if not isPresent(word, listEmail):      # if word is not already present in new listEmail
                     listEmail.append(word)                  # append the word to list
     return listEmail                            # returns list of email found in string
+"""
+def emailsFound(strText):
+    listText = strText.split(" ")               # splits email using one white space into a list
+    listEmail = []                              # list to store emails from the listText
+    for word in listText:                       # checks every word in listText
+        indexOfAtSign = word.find("@")
+        if(indexOfAtSign != -1):               # if string has @ sign in it
+            userName = word[0:indexOfAtSign]
+            domain = word[indexOfAtSign+1:]
+            if(validUserName(userName) and validDomain(domain)):
+                if(word.find(".com") != -1):            # if ".com" is found as substring
+                    if not isPresent(word, listEmail):      # if word is not already present in new listEmail
+                        listEmail.append(word)                  # append the word to list
+                if (word.find(".us") != -1):            # if ".us" is found as substring
+                    if not isPresent(word, listEmail):      # if word is not already present in new listEmail
+                        listEmail.append(word)                  # append the word to list
+                if (word.find(".org") != -1):           # if ".us" is found as substring
+                    if not isPresent(word, listEmail):      # if word is not already present in new listEmail
+                        listEmail.append(word)                  # append the word to list
+    return listEmail
+
+def validUserName(userName): # validates username according to rules, it should only contain:[A-Z][1-9].-
+    lastChar = len(userName)-1
+    if (userName[0] == "." or userName[lastChar] == "." or userName[lastChar] == "-" or userName[lastChar] == "_"):
+        return False
+    if (userName.find("..") != -1):
+        return False
+
+    for char in userName:
+        if (char.isdigit() or char.isalpha() or char == "." or char == "_" or char == "-"):
+            continue
+        else:
+            return False
+    return True
+
+def validDomain(domain):    # validates domain part between '@ to .', so it contains only [A-Z][1-9]-
+    if(domain.count(".") != 1):
+        return False
+    indexOfPeriod = domain.find(".")
+    domain = domain[0:indexOfPeriod]
+    lastChar = len(domain) - 1
+    if(domain[0]=="-" or domain[lastChar]=="-"):
+        return False
+    for char in domain:
+        if(char.isdigit() or char.isalpha() or char == "-"):
+            continue
+        else:
+            return False
+    return True
 
 
 # Function that removes duplicates in a list, taking a list as input and returning the list without duplicates.
@@ -61,6 +110,7 @@ def cleanText(strText):
     strText = strText.replace("[", " ")
     strText = strText.replace("]", " ")
     strText = strText.replace(",", " ")
+    strText = strText.replace(". ", " ")
     strText = strText.replace("   ", " ")
     strText = strText.replace("  ", " ")
     return strText
