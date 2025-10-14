@@ -105,6 +105,8 @@ def isPresent(strEmail, listEmail):
 # which could hinder splitting text using single whitespace
 def cleanText(strText):
     strText.strip()
+    if(strText[-1] == "." or strText[-1] == "!" or strText[-1] == "?"):
+        strText = strText[:-1]
     strText = strText.replace("(", " ")
     strText = strText.replace(")", " ")
     strText = strText.replace("[", " ")
