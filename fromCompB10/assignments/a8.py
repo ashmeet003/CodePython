@@ -15,50 +15,31 @@ listEmail = ["bill@network.us","george.smith@google.com", "test@gmail.com"]
 
 # Do this assignment WITHOUT the global keyword
 # Function that takes in a string, and returns a list of emails found.
-# this function assumes that only emails have their ending as ".com", ".us", ".org"
-"""def emailsFound(strText):
-    listText = strText.split(" ")               # splits email using one white space into a list
-    listEmail = []                              # list to store emails from the listText
-    for word in listText:                       # checks every word in listText
-        if(word.find("@") != -1):               # if string has @ sign in it
-            if(word.find(".com") != -1):            # if ".com" is found as substring
-                if not isPresent(word, listEmail):      # if word is not already present in new listEmail
-                    listEmail.append(word)                  # append the word to list
-            if (word.find(".us") != -1):            # if ".us" is found as substring
-                if not isPresent(word, listEmail):      # if word is not already present in new listEmail
-                    listEmail.append(word)                  # append the word to list
-            if (word.find(".org") != -1):           # if ".us" is found as substring
-                if not isPresent(word, listEmail):      # if word is not already present in new listEmail
-                    listEmail.append(word)                  # append the word to list
-    return listEmail                            # returns list of email found in string
-"""
+# uses another two functions validUserName() and validDomain() to validate email id
 def emailsFound(strText):
-    listText = strText.split(" ")               # splits email using one white space into a list
-    listEmail = []                              # list to store emails from the listText
-    for word in listText:                       # checks every word in listText
+    listText = strText.split(" ")                                       # splits email using one white space into a list
+    listEmail = []                                                      # list to store emails from the listText
+    for word in listText:                                               # checks every word in listText
         indexOfAtSign = word.find("@")
-        if(indexOfAtSign != -1):               # if string has @ sign in it
-            userName = word[0:indexOfAtSign]
-            domain = word[indexOfAtSign+1:]
-            if(validUserName(userName) and validDomain(domain)):
-                if(word.find(".com") != -1):            # if ".com" is found as substring
-                    if not isPresent(word, listEmail):      # if word is not already present in new listEmail
-                        listEmail.append(word)                  # append the word to list
-                if (word.find(".us") != -1):            # if ".us" is found as substring
-                    if not isPresent(word, listEmail):      # if word is not already present in new listEmail
-                        listEmail.append(word)                  # append the word to list
-                if (word.find(".org") != -1):           # if ".us" is found as substring
-                    if not isPresent(word, listEmail):      # if word is not already present in new listEmail
-                        listEmail.append(word)                  # append the word to list
-    return listEmail
+        if(indexOfAtSign != -1):                                        # if string has @ sign in it
+            if (word.count("@") == 1):                                  # validates if word contains only one @ sign
+                userName = word[0:indexOfAtSign]                        # username is part before @
+                domain = word[indexOfAtSign+1:]                         # domain is part after @
+                if(validUserName(userName) and validDomain(domain)):    # if userName and domain are valid
+                        if not isPresent(word, listEmail):              # if word is not already present in new listEmail
+                            listEmail.append(word)                      # append the word to list
+    return listEmail                                                    # returns list of valid email id's
 
-def validUserName(userName): # validates username according to rules, it should only contain:[A-Z][1-9].-
-    lastChar = len(userName)-1
-    if (userName[0] == "." or userName[lastChar] == "." or userName[lastChar] == "-" or userName[lastChar] == "_"):
+
+# validates username according to rules, it should only contain:[A-Z][1-9].-
+def validUserName(userName):
+    lastCharIndex = len(userName)-1
+    # checks if first and last characters are invalid characters
+    if (userName[0] == "." or userName[lastCharIndex] == "." or userName[lastCharIndex] == "-" or userName[lastCharIndex] == "_"):
         return False
     if (userName.find("..") != -1):
         return False
-
+    # if username uses only allowed characters
     for char in userName:
         if (char.isdigit() or char.isalpha() or char == "." or char == "_" or char == "-"):
             continue
@@ -66,19 +47,25 @@ def validUserName(userName): # validates username according to rules, it should 
             return False
     return True
 
-def validDomain(domain):    # validates domain part between '@ to .', so it contains only [A-Z][1-9]-
-    if(domain.count(".") != 1):
+
+# validates domain part between '@ to .', so it contains only [A-Z][1-9]-
+def validDomain(strDomain):
+    # domain should have only 1 period symbol
+    if(strDomain.count(".") != 1):
         return False
-    indexOfPeriod = domain.find(".")
-    domain = domain[0:indexOfPeriod]
-    lastChar = len(domain) - 1
-    if(domain[0]=="-" or domain[lastChar]=="-"):
+    indexOfPeriod = strDomain.find(".")
+    domain = strDomain[0:indexOfPeriod]                        # part prior period
+    strTLD = strDomain[indexOfPeriod+1:]                       # part after period
+    lastCharIndex = len(domain) - 1
+    if(domain[0]=="-" or domain[lastCharIndex]=="-"):          # checks for invalid last characters
         return False
-    for char in domain:
+    for char in domain:                                        # checks for valid characters only
         if(char.isdigit() or char.isalpha() or char == "-"):
             continue
         else:
             return False
+    if(len(strTLD) < 2 or not strTLD.isalpha()):               # checks for TLD(part after period)
+        return False
     return True
 
 
