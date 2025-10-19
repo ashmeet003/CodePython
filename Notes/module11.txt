@@ -18,7 +18,7 @@ myModule.x
     print(x)
 
 - '_name_' keyword stores name for imported module.
-    During codes execution this _name_ chages to _main_
+    During codes execution this _name_ changes to _main_
 
     from my_module import greet, PI
 
@@ -76,7 +76,7 @@ print(html)                  # Output: HTML content of the webpage
 
 dir():
     returns sorted list of object
-    or with no argumented, returns list of names in current scope.
+    or with no arguments, returns list of names in current scope.
     dir([object])
 
     my_list = [1, 2, 3]
