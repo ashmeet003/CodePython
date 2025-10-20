@@ -1,3 +1,7 @@
+# Ashmeet Kaur
+# CompB10 Fall2025
+# Rock Paper Scissors
+
 import rockPaperScissor as rps
 
 # Main part of program begins
