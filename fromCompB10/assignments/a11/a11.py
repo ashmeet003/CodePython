@@ -42,11 +42,9 @@ while True:
 
 
     # The set of statements asks user if they want to play again
-    # if user enter 'y - yes' the loop continues; games continues
-    # if user enters any other input, the loop break
+    # if user enter 'y - yes', function returns True; the loop continues; games continues
+    # if user enter 'n - no', function returns False; the loop breaks
     # and program ends
-    print("")
-    print("*"*60)
     if not rps.gameReplay(): # if user chooses to end gameplay, loop breaks; program ends
         break
 

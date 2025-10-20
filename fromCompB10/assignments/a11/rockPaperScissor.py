@@ -93,13 +93,18 @@ def finalWinner(intUserRound, intCompRound, intNumRounds):
 
 # the functions asks user if they wish to play a new game again
 def gameReplay():
-    replay = input("Do you want to play again? (y/n): ").strip().lower()
-    if (replay == "y" or replay == "yes"):      # if yes, prints appropriate message and returns true
-        print("You chose to play again!")
-        print("*" * 60)
-        return True
-    else:                                       # if yes, prints appropriate message and returns false
-        print("You chose to exit the game!")
-        print("Thank you for playing!")
-        print("*" * 60)
-        return False
+    print("")
+    print("*"*60)
+    while(True):
+        replay = input("Do you want to play again? (y/n): ").strip().lower()
+        if (replay == "y" or replay == "yes"):      # if yes, prints appropriate message and returns true
+            print("You chose to play again!")
+            print("*" * 60)
+            return True
+        if (replay == "n" or replay == "no"):  # if yes, prints appropriate message and returns false
+            print("You chose to exit the game!")
+            print("Thank you for playing!")
+            print("*" * 60)
+            return False
+        else:
+            print("Please enter either 'y - yes' or 'n - no': ")
