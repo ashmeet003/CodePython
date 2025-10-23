@@ -1,0 +1,24 @@
+****************** Opening a File *************************
+
+*** fileTest.py
+myFile = open("filename.txt","r")
+    myFile is pointer to the file
+r - read
+a - append
+w - write   -- overwrites the file
+x - create
+
+strFileText = myFile.read() - copies content to strFileText string variable
+strFileText = myFile.read(10) - read 10 characters of file...next call will read next 10
+strFileText = myFile.readline() - reads one line at a time
+
+myFile = open("filename.txt","a")
+myFile = open("filename.txt","w")
+myFile = open("filename.txt","x")
+myFile.write("This is added")
+
+myFile.close()
+
+import os
+os.remove("myFile.txt")
+os.path.exists("myFile.txt")
