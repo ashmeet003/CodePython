@@ -1,3 +1,7 @@
+# Ashmeet Kaur
+# CompB10 Fall2025
+# the code uses to text file to store commands for turtle
+# A fine example on usage of file
 import turtle
 
 def execute_turtle_commands(filename):
