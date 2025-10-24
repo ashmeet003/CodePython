@@ -5,12 +5,15 @@ myFile = open("filename.txt","r")
     myFile is pointer to the file
 r - read
 a - append
-w - write   -- overwrites the file
+w - write   -- create a new file/overwrites the file
 x - create
+b - binary  -- for images and executables
+t - text file(default mode) - for text files
 
 strFileText = myFile.read() - copies content to strFileText string variable
 strFileText = myFile.read(10) - read 10 characters of file...next call will read next 10
 strFileText = myFile.readline() - reads one line at a time
+strFileText = myFile.readlines() - reads all lines and return them as list
 
 myFile = open("filename.txt","a")
 myFile = open("filename.txt","w")
@@ -18,7 +21,77 @@ myFile = open("filename.txt","x")
 myFile.write("This is added")
 
 myFile.close()
+*** pthon automatically closed file with 'with block'
+**** But explicitly close the file ******
 
 import os
 os.remove("myFile.txt")
 os.path.exists("myFile.txt")
+
+Usual Errors:
+    FileNotFoundError   - file doesn't exist
+    PermissionError     - file has restricted access
+    IOError             - Certain IO Error
+
+Tips:
+    Use with open block: with open(filename, 'r') as file:
+    Check if file exists: using os.path.exists()
+    Always handle file exceptions
+    For text files: consider encoding (e.g., 'utf-8') to handle special characters correctly
+
+*********************** OS Module **********************
+- great to interact with os
+- import os
+os.path.exists(path) :  Checks if a file or directory exists at the specified path.
+os.path.isfile(path) :  Checks if the given path points to a regular file.
+os.path.isdir(path)  :  Checks if the given path points to a directory.
+os.remove(path)      :  Deletes a file at the specified path.
+os.mkdir(path)       :  Creates a directory at the specified path.
+os.makedirs(path)    :  Creates directories recursively along the specified path.
+os.rename(src, dst)  :  Renames a file or directory from src to dst.
+os.listdir(path)     :  Returns a list of all files and directories in the specified directory.
+
+************************ shutil module ***********************
+- great to copy/move/archive files
+- import shutil
+shutil.copy(src, dst)       : Copies a file from src to dst.
+shutil.copy2(src, dst)      : Copies a file, preserving metadata (timestamps, permissions, etc.).
+shutil.copytree(src, dst)   : Recursively copies a directory and its contents to dst.
+shutil.move(src, dst)       : Moves a file or directory from src to dst.
+shutil.rmtree(path)         : Recursively deletes a directory and its contents.
+
+*********************** Glob Module ****************************
+- pattern matching....kind of regex
+- import glob
+glob.glob(pattern)  : Returns a list of file paths that match the specified pattern.
+    txt_files = glob.glob('*.txt')
+
+
+****************************************************************************************************************
+*********************       Serializing        *************************
+Serialize - process of turning python objects to strings to be saved to a text file.
+Converts objects in memory into a format that can be easily stored, transmitted, or shared.
+1. Pickle Library
+2. JSON Library
+
+********************** Pickle Library ************************
+- import pickle
+- save complex data structures such as lists into a binary format
+- pickle.dump() serializes objects
+- pickle load() deserializes data from a file
+- .pkl is usually used extension for pickle files
+    with open('file_name.pkl', 'wb') as file:
+       pickle.dump(object_to_serialize, file)
+
+    with open('file_name.pkl', 'rb') as file:
+        loaded_object = pickle.load(file)
+
+*********************** JSON Library ******************************
+- import json
+- preferred for human-readable and platform independent format
+Serialize:
+    with open('file_name.json', 'w') as file:
+        json.dump(object_to_serialize, file)
+Deserialize:
+    with open('file_name.json', 'r') as file:
+        loaded_object = json.load(file)
