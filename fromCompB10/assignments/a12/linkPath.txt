@@ -1,0 +1,5 @@
+Original path:
+https://www.bmoseley.com/test.html ------> https://www.bmoseley.com/test2.html ------> https://www.bmoseley.com/test3.html
+
+Sub Link from prior path:
+https://www.bmoseley.com/test.html ------> https://www.bmoseley.com/test3b.html

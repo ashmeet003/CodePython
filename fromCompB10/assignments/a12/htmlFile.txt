@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page 3</title>
+</head>
+<body>
+    <h2>Test page 3</h2>
+    <a href="http://www.microsoft.com">Microsoft</a>
+    <a href="http://www.blizzard.com.com">Blizzard Entertainment</a>
+    fakeemail@apple.com is my gamer email.
+</body>
+</html>
