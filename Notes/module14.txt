@@ -1,0 +1,9 @@
+**************************** OOP *******************************
+
+object - is an entity that has both data(attributes) and behaviour(action/method)
+classes - is a bluprint for objects that defines its structures and behaviours.
+        - create objects with common characteristics
+
+Constructors  - uses class to set value of attributes for each object
+Encapsulation: binding attributes and methods within single object
+Aggregation
