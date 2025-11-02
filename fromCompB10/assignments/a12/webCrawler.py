@@ -2,7 +2,7 @@
 # CompB10 Fall 2025
 # Web Crawler
 # Build a web crawler application that will scan web pages for links, and follow them,
-# scanning for more links until the application doesn’t find any new web pages on the web site.
+# scanning for more links until the application doesn’t find any new web pages on the website.
 
 # For the following program: it is divided in 3 function: toHTML(), scanHTML(), linkToPath()
 # Each function is connected to one another and basically use recursive for toHTML
@@ -12,7 +12,7 @@
 import os
 import urllib.request, ssl
 
-def toHTML(strURL):                                     # the function reads and decodes an url as HTML file
+def toHTML(strURL):                                     # the function reads and decodes a url as HTML file
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
@@ -23,10 +23,10 @@ def toHTML(strURL):                                     # the function reads and
     with open("htmlFile.txt", "w") as f:                # read HTML is written to txt file for ease to read files using readlines()
         f.write(strPage)
         f.close()
-    scanHTML()                                          # links to next function
+    scanHTML(strURL)                                          # links to next function
 
 
-def scanHTML():                                         # function scans HTML file to find related links
+def scanHTML(strUrl):                                         # function scans HTML file to find related links
     with open("htmlFile.txt", "r") as f:                # the read html file is opened in read mode
         requiredText = "https://www.bmoseley.com/"      # required url which will be needed for further scan in given links
         lineList = f.readlines()                        # returns list of lines from HTML text file
