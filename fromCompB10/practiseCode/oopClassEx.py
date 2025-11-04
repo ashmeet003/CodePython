@@ -7,6 +7,9 @@ class clCar:
         self.strMake = strMake
         self.strColor = strColor
 
+    def __str__(self):
+        return f"This is a {self.strColor} {self.strMake} car with mileage{self.intMileage}."
+
     def startCar(self): # this methods belongs to self object
         print("This car has started")
         self.boolRunning = True
@@ -36,3 +39,6 @@ myCar1.driveCar(50)
 
 print(f"The {myCar1.strMake} is {myCar1.strColor}")
 print(f"The {myCar3.strMake} is {myCar3.strColor}")
+
+print(myCar3)
+print(myCar2)
