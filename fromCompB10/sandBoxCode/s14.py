@@ -13,7 +13,7 @@ class clPet:
         print(f"You adopted a new pet and named them {self.strPetName}.")
 
     def __str__(self):
-        return f"{obPet.strPetName} (Hunger: {obPet.intHunger}) (Boredom: {obPet.intBoredom}) (Loneliness: {obPet.intLoneliness})"
+        return f"{self.strPetName} (Hunger: {self.intHunger}) (Boredom: {self.intBoredom}) (Loneliness: {self.intLoneliness})"
 
     def takeTurn(self):     # updated function to include loneliness factor
         print("\n -- TIME PASSES --\n")
