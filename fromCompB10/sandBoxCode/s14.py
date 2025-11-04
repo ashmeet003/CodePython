@@ -8,7 +8,7 @@ class clPet:
         self.strPetName = strName
         self.intHunger = 5
         self.intBoredom = 5
-        self.intLoneliness  = 5
+        self.intLoneliness = 5
 
         print(f"You adopted a new pet and named them {self.strPetName}.")
 
