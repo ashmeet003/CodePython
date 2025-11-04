@@ -1,19 +1,25 @@
+# Name : Ashmeet Kaur
+# CompB10 Fall 2025
+# OOP module based on pet game: needs to feed, play, and cuddle a pet
+
 import random
 class clPet:
     def __init__(self, strName):
         self.strPetName = strName
         self.intHunger = 5
         self.intBoredom = 5
+        self.intLoneliness  = 5
 
         print(f"You adopted a new pet and named them {self.strPetName}.")
 
     def __str__(self):
-        return f"{obPet.strPetName} (Hunger: {obPet.intHunger}) (Boredom: {obPet.intBoredom})"
+        return f"{obPet.strPetName} (Hunger: {obPet.intHunger}) (Boredom: {obPet.intBoredom}) (Loneliness: {obPet.intLoneliness})"
 
-    def takeTurn(self):
+    def takeTurn(self):     # updated function to include loneliness factor
         print("\n -- TIME PASSES --\n")
         self.intHunger -= random.randint(0,3)
         self.intBoredom -= random.randint(0,3)
+        self.intLoneliness -= random.randint(0,3)
         if (self.intHunger < 4 and self.intHunger > 0):
             print(f"{self.strPetName} is Hungry!")
         elif (self.intHunger < 1):
@@ -22,6 +28,10 @@ class clPet:
             print(f"{self.strPetName} is so BORED!")
         elif (self.intBoredom < 1):
             print(f"{self.strPetName} has run away to find some fun.")
+        if (self.intLoneliness < 4 and self.intLoneliness > 0):
+            print(f"{self.strPetName} is so LONELY!")
+        elif (self.intLoneliness < 1):
+            print(f"{self.strPetName} has found an owner that will cuddle them!")
         print("\n\n")
 
     def feedPet(self):
@@ -31,6 +41,10 @@ class clPet:
     def playPet(self):
         self.intBoredom += 5
         print(f"You played with {self.strPetName}.")
+
+    def cuddlePet(self):            # added function for loneliness
+        self.intLoneliness += 5
+        print(f"You cuddled {self.strPetName}.")
 
 def welcomeUser ():
     print("Welcome to the pet store.")
@@ -43,7 +57,8 @@ while True:
     print("1. Adopt a pet.")
     print("2. Feed a pet.")
     print("3. Play with a pet.")
-    print("4. Check on pets.")
+    print("4. Cuddle a pet.") # added Loneliness factor option
+    print("5. Check on pets.")
 
     strMenu = input("What would you like to do? ")
     if (strMenu == "1"):
@@ -72,13 +87,29 @@ while True:
     elif (strMenu == "3"):
         print("\nYou chose to play with a pet.\n")
         # use the pet feed from "option 2" above to complete the play section below.
+        intNumber = 1
+        for obPet in liPets:
+            print(intNumber, obPet)
+            intNumber += 1
+        intIndex = int(input("Enter the number of the pet you want to play: "))-1
+        liPets[intIndex].playPet()
 
-    elif (strMenu == "4"):
+    elif(strMenu == "4"): # added menu#4 for Loneliness
+        print("\nYou chose to cuddle a pet.\n")
+        intNumber = 1
+        for obPet in liPets:
+            print(intNumber, obPet)
+            intNumber += 1
+        intIndex = int(input("Enter the number of the pet you want to cuddle: "))-1
+        liPets[intIndex].cuddlePet()
+
+    elif (strMenu == "5"):  # changes menu from 4 to 5
         for obPet in liPets:
             print(obPet)
     else:
         print("Not a valid option. Try again.")
 
     for obPet in liPets:
-        if obPet.intBoredom < 1 or obPet.intHunger < 1:
+        obPet.takeTurn()            # added takeTurn() for values of properties to decrease
+        if obPet.intBoredom < 1 or obPet.intHunger < 1 or obPet.intLoneliness < 1:
             liPets.remove(obPet)
