@@ -1,6 +1,9 @@
 **************************** OOP *******************************
 
 object - is an entity that has both data(attributes) and behaviour(action/method)
+       - instance of a class
+       - methods - functions
+       - properties - data values - variables
 classes - is a bluprint for objects that defines its structures and behaviours.
         - create objects with common characteristics
 
