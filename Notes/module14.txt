@@ -10,3 +10,8 @@ classes - is a bluprint for objects that defines its structures and behaviours.
 Constructors  - uses class to set value of attributes for each object
 Encapsulation: binding attributes and methods within single object
 Aggregation
+
+Two class intialization method:
+    def __init__(self):
+    def __str__(self):
+
