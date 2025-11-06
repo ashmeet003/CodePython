@@ -17,3 +17,8 @@ Two class intialization method:
 
 List of classes  -  to create objects
 
+****************** Getter/Setter methods **********************************
+- ensures object cotrol its own info....valid values
+- error handling
+- easy debugging
+

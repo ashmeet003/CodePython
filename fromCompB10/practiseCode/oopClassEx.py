@@ -25,6 +25,15 @@ class clCar:
     def rentOut(self):
         self.boolAvailable = False
 
+    def setWheels(self, intN):
+        if(isinstance(intN, int) and intN > 1):
+            self.intWheels = intN
+        else:
+            print("No")
+
+    def getWheels(self):
+        return self.intWheels
+
 liCars = []
 liCars.append(clCar("Toyota Corolla", "Black"))
 liCars.append(clCar("Ford", "Green"))
