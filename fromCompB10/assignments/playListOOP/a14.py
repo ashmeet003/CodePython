@@ -110,7 +110,12 @@ def main():
 
         elif choice == "2":                                              # adds new song to list
             print("Add a new song:")
-            title = input("Enter song's title: ").strip().title()        # title entered is stripped and formatted to title case
+            while  True:
+                title = input("Enter song's title: ").strip().title()        # title entered is stripped and formatted to title case
+                if len(title) > 0:
+                    break
+                else:
+                    print("Title cannot be empty.\n")
             while True:                                                  # validates year entered to be a 4-digit number
                 year = input("Enter song's year: ").strip()
                 if year.isdigit() and len(year) == 4:

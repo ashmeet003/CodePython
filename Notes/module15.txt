@@ -1,0 +1,10 @@
+******************* Inheritance ****************************
+- subclass inherits from super class
+- gains access to attributes and methods
+- code reusability
+- Modularity
+- Abstraction - 
+    class SuperClass:
+    class SubClass(SuperClass):
+
+Polymorphism: overriding existing function
