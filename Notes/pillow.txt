@@ -1,0 +1,23 @@
+from PIL import Image
+filename = "beach.jpg"
+imgfile = Image.open(filename)
+imgfile.show()
+# image is being previwed in default image opener app on your os
+# opened as png file
+# all pillow objects are png file
+
+img.format
+# Cropping and resizing image
+cropped = img.crop((300,150,1000,600))# outer () for method, and inner() is a tuple
+# (300, 150) and (1000, 600) is point on image like x,y coordinates
+0,0 -------------> 1200
+|       *(300,150)
+|
+|
+|               *(1000,600)
+700
+
+resized = img.resize((img.width // 4, img.height // 4))
+add attribute: resample = Image.Resampling.NEAREST, BILINEAR
+
+croppedImg.save("SavedImage.jpg")
