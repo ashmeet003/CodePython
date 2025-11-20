@@ -1,7 +1,7 @@
 from PIL import Image
 filename = "beach.jpg"
 imgfile = Image.open(filename)
-imgfile.show()
+# imgfile.show()
 # image is being previewed in default image opener app on your os
 # opened as png file
 # all pillow objects are png file
@@ -13,5 +13,5 @@ print(f"Total pixels: {imgfile.width * imgfile.height}")
 # imgCropped = imgfile.crop((1600,983,3200,1966))
 # imgCropped.show()
 
-imgResized = imgfile.resize((imgfile.width//4,imgfile.height//4))
-imgResized.show()
+# imgResized = imgfile.resize((imgfile.width//4,imgfile.height//4))
+# imgResized.show()

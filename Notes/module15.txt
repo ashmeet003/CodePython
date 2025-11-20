@@ -8,3 +8,13 @@
     class SubClass(SuperClass):
 
 Polymorphism: overriding existing function
+    - especially useful when you want to create generic 
+    Method overriding
+    duck Typing: a function choosing to behave for certain object depending on type of object passed to it.
+
+    class Bike:
+        def drive(self):
+            print("Bike is riding.")
+    def make_vehicle_drive(vehicle):
+       vehicle.drive() # function chooses its object's function
+    make_vehicle_drive(bike) # passes bike object to function
