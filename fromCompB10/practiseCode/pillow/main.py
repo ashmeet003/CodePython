@@ -15,3 +15,8 @@ print(f"Total pixels: {imgfile.width * imgfile.height}")
 
 # imgResized = imgfile.resize((imgfile.width//4,imgfile.height//4))
 # imgResized.show()
+
+imgR, imgG, imgB = image.split()
+imgR=imgR.rotate(5)
+imgG=imgG.rotate(7)
+image=Image.merge("RGB",(imgR, imgG, imgB))
