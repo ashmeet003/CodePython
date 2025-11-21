@@ -47,8 +47,8 @@ def filterOne(imgFile):
 
 def filterTwo(imgFile):
     grayScaled = imgFile.convert("L")
-    r,g,b = grayScaled.split()
-    r = imgFile.filter(ImageFilter.GaussianBlur(30))
+    r,g,b = imgFile.split()
+    r = r.filter(ImageFilter.GaussianBlur(30))
     enhancer = ImageEnhance.Brightness(r)
     r = enhancer.enhance(5)
     imgNew = Image.merge("RGB",(r,g,b))
