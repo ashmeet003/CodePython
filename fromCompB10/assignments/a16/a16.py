@@ -1,3 +1,8 @@
+# Ashmeet Kaur
+# CompB10 Fall2025
+# pillow
+# open an image - apply filter - save the image
+
 import os
 from PIL import Image, ImageFilter, ImageEnhance
 
@@ -46,13 +51,22 @@ def filterOne(imgFile):
 
 
 def filterTwo(imgFile):
-    grayScaled = imgFile.convert("L")
     r,g,b = imgFile.split()
+    # filters red:
     r = r.filter(ImageFilter.GaussianBlur(30))
     enhancer = ImageEnhance.Brightness(r)
-    r = enhancer.enhance(5)
+    r = enhancer.enhance(0.8)
+    # filters blue:
+    b = b.filter(ImageFilter.EDGE_ENHANCE)
+    enhancer = ImageEnhance.Color(b)
+    b = enhancer.enhance(0.2)
+    # filters green:
+    enhancer = ImageEnhance.Contrast(g)
+    g = enhancer.enhance(2.0)
+    # merges image
     imgNew = Image.merge("RGB",(r,g,b))
     print("\nThe Filter has Been Applied.\n")
+    # displays and returns image
     imgNew.show()
     return imgNew
 
@@ -80,34 +94,56 @@ def pressEnter():
 # Main program loop
 while True:
     strMenu = mainMenu()
-    if strMenu == "1":
+    if strMenu == "1":                      # opens image file and displays it
         arFiles = returnFiles(strImageDir)
         print("Which image file would you like to open?")
-        for ind, item in enumerate(arFiles,1):
+        for ind, item in enumerate(arFiles,1):      # loops through each file name
             print(f"{ind}. {item}")
         indFile = int(input("Enter the file number: "))-1
-        imgFile = Image.open(strImageDir+"/"+str(arFiles[indFile]))
-        strFileName = str(arFiles[indFile])
+        imgFile = Image.open(strImageDir+"/"+str(arFiles[indFile])) # stores image
+        strFileName = str(arFiles[indFile])                         # stores file name
         imgFile.show()
         print(f"The file {strFileName} has been opened.\n")
 
-    elif strMenu == "2":
+    elif strMenu == "2":            # applies 1st filter
         if imgFile == None:
             print("You need to open an image first!")
         else:
             imgFile = filterOne(imgFile)
 
-    elif strMenu == "3":
+    elif strMenu == "3":            # applies second filter
         if imgFile == None:
             print("You need to open an image first!")
         else:
             imgFile = filterTwo(imgFile)
 
     elif strMenu == "4": # save image
-        pass
+        if imgFile == None:     # checks if any file was opened yet
+            print("You need to open an image first!")
+        else:
+            while True:                                                 # checks for y/n correct input
+                strSave = input("\nDo you want to save the image? (y/n): ").strip().lower()
+                if strSave == "y":                                      # if user chooses to save file
+                    dotIndex = strFileName.find(".")                    # finds dot before extension
+                    if dotIndex != -1:                                  # if dot/extension is found
+                        fileName = strFileName[0:dotIndex] + "Copy"     # creates new file name: OG_File_NameCopy.extension
+                        fileExtension = strFileName[dotIndex:]          # stores last extension part
+                        imgFile.save(strImageDir+"/"+fileName+fileExtension)    # merges everything and saves files with new name
+                        print("Image saved successfully!\n")
+                    else:                                               # if no extension was found originally
+                        print("Image extension not found\n")
+                    break
+                elif strSave == "n":                                    # if user chooses not to save file
+                    print("You chose not to save the image.\n")
+                    break
+                else:                                                   # if invalid input is entered
+                    print("Invalid input.\n")
 
-    elif strMenu == "5":
-        print("Thanks for trying InstaPy!")
+    elif strMenu == "5":        # exits program
+        print("")
+        print("*"*60)
+        print("Thanks for trying InstaPy!".center(60))
+        print("*" * 60)
         break
 
     else:
