@@ -21,3 +21,146 @@ resized = img.resize((img.width // 4, img.height // 4))
 add attribute: resample = Image.Resampling.NEAREST, BILINEAR
 
 croppedImg.save("SavedImage.jpg")
+
+______________________________________________________________________
+To create a new image: Image.new()
+blank_image = Image.new("RGB", (width, height), color="white") //rgb color image with background white
+blank_image.save(image.jpg)
+# use "RGBA" mode as color=(0,0,0,0) for transparent background using alpha channel
+________________________________________________________________________
+To open existing: Image.open(path)
+image = Image.open("file.jpg")
+
+Size:
+width,height = image.size
+
+Color mode: RBG/ RGBA
+color_mode = image.mode
+
+Format: jpeg/jpg/png
+file_format = image.format
+
+Resize: tuple: (width,height) = new_size
+resized: image.resize(new_size)
+
+Cropping: box(100,100,300,300)
+cropped_image = image.crop(box)
+
+Rotating:
+rotated_image = image.rotate(45)
+
+Flipping:
+flipped_horizontal = image.transpose(Image.FLIP_LEFT_RIGHT)  # Flip horizontally
+flipped_vertical = image.transpose(Image.FLIP_TOP_BOTTOM)     # Flip vertically
+___________________________________________________________________________________
+
+Filters:
+from PIL import Image, ImageFilter
+
+Blur:
+blurred_image = image.filter(ImageFilter.BLUR)
+
+Contour:
+contour_image = image.filter(ImageFilter.CONTOUR)
+
+Detail: enhances details and pixels
+detail_image = image.filter(ImageFilter.DETAIL)
+
+Edge enhance:
+edge_enhanced_image = image.filter(ImageFilter.EDGE_ENHANCE)
+
+Emboss:
+embossed_image = image.filter(ImageFilter.EMBOSS)
+
+Sharpen:
+sharpened_image = image.filter(ImageFilter.SHARPEN)
+
+Smooth:
+smoothed_image = image.filter(ImageFilter.SMOOTH)
+_______________________________________________________________________________
+Enhancement:
+from PIL import Image, ImageEnhance
+
+Brightness enhancer:
+enhancer = ImageEnhance.Brightness(image)
+brightened_image = enhancer.enhance(factor)
+    # Any positive float value
+    # <1 decreases brightness
+    # =1 same brightness
+    # >1 increase brightness
+
+Contrast enhancement:
+enhancer = ImageEnhance.Contrast(image)
+high_contrast_image = enhancer.enhance(factor)
+    # Any positive float value
+    # <1 decreases contrast
+    # =1 same contrast
+    # >1 increase contrast
+
+Sharpness Enhancement:
+enhancer = ImageEnhance.Sharpness(image)
+sharpened_image = enhancer.enhance(factor)
+    # Any positive float value
+    # <1 decreases sharpness - blur
+    # =1 same sharpness
+    # >1 increase sharpness - clearer
+
+Color Enhancement:
+enhancer = ImageEnhance.Color(image)
+color_enhanced_image = enhancer.enhance(factor)
+    # Any positive float value
+    # <1 decreases color intensity
+    # =1 same color intensity
+    # >1 increase color intensity
+___________________________________________________________________________________
+
+from PIL import Image
+
+Display Image:
+image.show()
+
+Saving Image:
+image.save("path/to/modified_image.jpg")
+_______________________________________________________________________________
+
+Different channels filtration:
+
+from PIL import Image, ImageFilter, ImageEnhance
+
+def split_channels(image):
+   # Split the image into individual color channels (R, G, B)
+   r, g, b = image.split()
+   return r, g, b
+
+def apply_filter_to_channel(channel, filter_type):
+   # Apply the specified filter to the channel
+   filtered_channel = channel.filter(filter_type)
+   return filtered_channel
+
+def enhance_channel(channel, factor):
+   # Enhance the channel with the specified factor
+   enhancer = ImageEnhance.Brightness(channel)
+   enhanced_channel = enhancer.enhance(factor)
+   return enhanced_channel
+
+def recombine_channels(red_channel, green_channel, blue_channel):
+   # Recombine the color channels into a single RGB image
+   return Image.merge("RGB", (red_channel, green_channel, blue_channel))
+
+# Open the image
+image_path = "images/skate.jpg"
+original_image = Image.open(image_path)
+
+# Split the image into RGB channels
+red, green, blue = split_channels(original_image)
+
+# Apply filters and enhancements to each channel
+blurred_red = apply_filter_to_channel(red, ImageFilter.BLUR)
+enhanced_green = enhance_channel(green, 1.5)  # Enhance with a factor of 1.5
+sharpened_blue = apply_filter_to_channel(blue, ImageFilter.SHARPEN)
+
+# Recombine the modified channels into a single RGB image
+modified_image = recombine_channels(blurred_red, enhanced_green, sharpened_blue)
+
+# Save the final recombined RGB image
+modified_image.save("images/modified_image.jpg")
