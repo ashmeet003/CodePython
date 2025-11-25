@@ -1,0 +1,267 @@
+Tkinter:
+GUI library in Python
+CCreates graphical elements like:
+windows, buttons, menus
+
+import tkinter as tk
+# Create the main application window
+root = tk.Tk()
+
+# Set the window title
+root.title("My First Tkinter App")
+
+# Set the window dimensions (width x height)
+root.geometry("400x300")
+
+# Start the main event loop
+root.mainloop()
+______________________________________________________________________________
+Labels: display static text or images on the GUI
+import tkinter as tk
+
+# Create the main application window
+root = tk.Tk()
+root.title("Label Example")
+
+# Create and display a label
+label = tk.Label(root, text="Hello, Tkinter!")
+label.pack()
+
+# Run the Tkinter event loop
+root.mainloop()
+_________________________________________________________________
+Buttons: actions when clicked
+import tkinter as tk
+
+# Function to be executed when the button is clicked
+def on_button_click():
+   label.config(text="Button clicked!")
+
+# Create the main application window
+root = tk.Tk()
+root.title("Button Example")
+
+# Create a label and a button
+label = tk.Label(root, text="Press the button:")
+label.pack()
+button = tk.Button(root, text="Click Me!", command=on_button_click)
+button.pack()
+
+# Run the Tkinter event loop
+root.mainloop()
+________________________________________________________________________
+Entry widgets: enter text/data entry/form fields
+# Function to get the input from the Entry widget
+def get_input():
+   user_input = entry.get()
+   label.config(text=f"Your input: {user_input}")
+
+# Create the main application window
+root = tk.Tk()
+root.title("Entry Example")
+
+# Create an Entry widget and a button
+entry = tk.Entry(root)
+entry.pack()
+button = tk.Button(root, text="Submit", command=get_input)
+button.pack()
+label = tk.Label(root, text="")
+label.pack()
+___________________________________________________________________________
+Checkboxes:
+# Function to display selected options
+def show_selected():
+   selected_options = [option.get() for option in checkboxes]
+   label.config(text=f"Selected: {', '.join(selected_options)}")
+
+# Create the main application window
+root = tk.Tk()
+root.title("Checkbox Example")
+
+# Create and display checkboxes
+options = ["Option 1", "Option 2", "Option 3"]
+checkboxes = [tk.StringVar() for _ in range(len(options))]
+for idx, option in enumerate(options):
+   tk.Checkbutton(root, text=option, variable=checkboxes[idx]).pack()
+
+# Create a button and a label
+button = tk.Button(root, text="Show Selected", command=show_selected)
+button.pack()
+label = tk.Label(root, text="")
+label.pack()
+________________________________________________________________________________
+Radio buttons:
+# Function to display the selected option
+def show_selected():
+   selected_option = radio_var.get()
+   label.config(text=f"Selected: {selected_option}")
+
+# Create the main application window
+root = tk.Tk()
+root.title("Radio Button Example")
+
+# Create and display radio buttons
+options = ["Option 1", "Option 2", "Option 3"]
+radio_var = tk.StringVar()
+for option in options:
+   tk.Radiobutton(root, text=option, variable=radio_var, value=option).pack()
+
+# Create a button and a label
+button = tk.Button(root, text="Show Selected", command=show_selected)
+button.pack()
+label = tk.Label(root, text="")
+label.pack()
+____________________________________________________________________________________
+Listboxes:
+# Function to display the selected item(s)
+def show_selected():
+   selected_items = [listbox.get(idx) for idx in listbox.curselection()]
+   label.config(text=f"Selected: {', '.join(selected_items)}")
+
+# Create the main application window
+root = tk.Tk()
+root.title("Listbox Example")
+
+# Create a listbox and populate it with items
+listbox = tk.Listbox(root, selectmode=tk.MULTIPLE)
+for item in ["Item 1", "Item 2", "Item 3", "Item 4"]:
+   listbox.insert(tk.END, item)
+listbox.pack()
+
+# Create a button and a label
+button = tk.Button(root, text="Show Selected", command=show_selected)
+button.pack()
+label = tk.Label(root, text="")
+label.pack()
+______________________________________________________________________________________
+Frames: window layout:
+# Create the main application window
+root = tk.Tk()
+root.title("Frame Example")
+
+# Create and pack two frames
+frame1 = tk.Frame(root, padx=10, pady=10)
+frame1.pack(side=tk.LEFT)
+frame2 = tk.Frame(root, padx=10, pady=10)
+frame2.pack(side=tk.RIGHT)
+
+# Add widgets to frames
+tk.Label(frame1, text="This is Frame 1").pack()
+tk.Label(frame2, text="This is Frame 2").pack()
+_____________________________________________________________________________________________________
+Positioning Widgets:
+- pack()    - grid()    -place()
+
+-pack(): horizontal or vertical stack
+root = tk.Tk()
+
+label1 = tk.Label(root, text="Label 1")
+label2 = tk.Label(root, text="Label 2")
+label3 = tk.Label(root, text="Label 3")
+
+label1.pack()
+label2.pack()
+label3.pack()
+____________________________________________________
+-grid(): organizing in rows and columns
+label1 = tk.Label(root, text="Label 1")
+label2 = tk.Label(root, text="Label 2")
+label3 = tk.Label(root, text="Label 3")
+
+label1.grid(row=0, column=0)
+label2.grid(row=0, column=1)
+label3.grid(row=1, column=0, columnspan=2)
+_____________________________________________________
+-place geometry: use absolute coordinates
+label1 = tk.Label(root, text="Label 1")
+label2 = tk.Label(root, text="Label 2")
+label3 = tk.Label(root, text="Label 3")
+
+label1.place(x=20, y=30)
+label2.place(x=50, y=80)
+label3.place(x=100, y=150)
+__________________________________________________________________________________________
+Interacting with functions:
+binding functions to events:
+- button clicks/mouse movements/key presses
+def on_button_click():
+   print("Button clicked!")
+
+root = tk.Tk()
+button = tk.Button(root, text="Click Me", command=on_button_click)
+button.pack()
+____________________________________________________________________
+Handling user input:
+def greet_user():
+   name = entry.get()
+   if name.strip():
+       greeting = f"Hello, {name}!"
+       output_label.config(text=greeting)
+
+root = tk.Tk()
+entry = tk.Entry(root)
+entry.pack()
+
+greet_button = tk.Button(root, text="Greet", command=greet_user)
+greet_button.pack()
+
+output_label = tk.Label(root, text="")
+output_label.pack()
+_________________________________________________________________________
+Update widgets dynamically:
+def update_label_text():
+   new_text = "Label text updated!"
+   label.config(text=new_text)
+
+root = tk.Tk()
+label = tk.Label(root, text="Click the button to update me.")
+label.pack()
+
+update_button = tk.Button(root, text="Update Label", command=update_label_text)
+update_button.pack()
+______________________________________________________________________________________
+
+Complete Application:
+import tkinter as tk
+
+def calculate_result():
+   try:
+       num1 = float(entry_num1.get())
+       num2 = float(entry_num2.get())
+       operator = operator_var.get()
+
+       if operator == "+":
+           result = num1 + num2
+       elif operator == "-":
+           result = num1 - num2
+       elif operator == "*":
+           result = num1 * num2
+       elif operator == "/":
+           result = num1 / num2
+
+       result_label.config(text=f"Result: {result}")
+   except ValueError:
+       result_label.config(text="Error: Invalid input!")
+
+root = tk.Tk()
+root.title("Simple Calculator")
+
+entry_num1 = tk.Entry(root)
+entry_num1.pack()
+
+operator_var = tk.StringVar()
+operator_choices = ["+", "-", "*", "/"]
+operator_var.set("+")  # Set the initial operator to '+'
+operator_menu = tk.OptionMenu(root, operator_var, *operator_choices)
+operator_menu.pack()
+
+entry_num2 = tk.Entry(root)
+entry_num2.pack()
+
+calculate_button = tk.Button(root, text="Calculate", command=calculate_result)
+calculate_button.pack()
+
+result_label = tk.Label(root, text="")
+result_label.pack()
+
+root.mainloop()
