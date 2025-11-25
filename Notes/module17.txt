@@ -1,3 +1,6 @@
+https://tkdocs.com/
+
+
 Tkinter:
 GUI library in Python
 CCreates graphical elements like:
@@ -265,3 +268,16 @@ result_label = tk.Label(root, text="")
 result_label.pack()
 
 root.mainloop()
+_______________________________________________
+from tkinter import filedialog
+path = filedialog.askopenfilename()
+______________________
+colorchooser
+__________________
+message box
+askyesorno
+________________________
+simpledialog
+sd.askstring("Title", "this is the question")
+____________________________
+image tk module

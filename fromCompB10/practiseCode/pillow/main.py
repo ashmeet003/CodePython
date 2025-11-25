@@ -1,5 +1,5 @@
 from PIL import Image
-filename = "beach.jpg"
+filename = "images/beach.jpg"
 imgfile = Image.open(filename)
 # imgfile.show()
 # image is being previewed in default image opener app on your os

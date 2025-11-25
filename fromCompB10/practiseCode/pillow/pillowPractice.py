@@ -1,5 +1,5 @@
 from PIL import Image, ImageFilter, ImageEnhance
-filename = "./beach.jpg"
+filename = "images/beach.jpg"
 with Image.open(filename) as image:
     image.load()
 # img.show()
