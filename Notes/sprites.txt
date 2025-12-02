@@ -1,0 +1,31 @@
+***********************************************PyGame***********************************
+
+makes structure and objects of a game easy to use
+sprites, collision
+screen updates
+controls-mouse, keyboard, game controllers
+sounds, writing, screen drawing.
+
+---------------------
+Sprite is made of twoparts:
+one we can see: surface- you can import graphics...save it as png files and import it
+-we cannot see- rectangle: hitbox, area of sprite which handles collisions.pygame could make hitbox based on shape of object.
+                           controls where sprite moves- its functional part of sprite
+
+Screen.blit(surface, location) # blit says we are putting this image/surface to that location
+number of pictures displayed simultaneously, makes us see motion. like a flip book- creating illusion of movement
+- while we are looking at one screen, pygame is drawing next screen in memory, next pygame flips to next screen creating movement
+Screen.flip() # flips to next screen.
+
+Game Loop:
+while true loop till game is on:
+    user input
+    update sprites
+    draw background
+    blit sprites/object
+    collision check
+    flip display
+    clock control --- says pause for a moment...so game will not be over even before we move our character
+    game over?
+
+image game sprites----search for sprites
