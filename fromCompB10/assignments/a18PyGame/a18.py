@@ -15,7 +15,7 @@ from pygame.locals import *
 class Player(pygame.sprite.Sprite):
     def __init__(self):     # loads player sprite, makes its white background transparent
         super().__init__()
-        self.surf = pygame.image.load("./images/rocket1.png").convert()
+        self.surf = pygame.image.load("images/rocket.png").convert()
         self.surf.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.surf.get_rect(center=(120, SCREEN_HEIGHT // 2))
 
