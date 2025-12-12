@@ -89,6 +89,7 @@ PIPE_GAP = 170              # vertical gap for the player to pass through
 score = 0
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Mission Control")
 clock = pygame.time.Clock()
 font = pygame.font.Font(None, 36)
 background = pygame.image.load("./images/spaceBackground.png").convert()
