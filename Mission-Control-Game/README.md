@@ -2,6 +2,10 @@
 
 A 2D endless runner game built with PyGame where the player navigates a rocket through obstacles.
 
+## 📸 Screenshot
+![Gameplay](Game_ScreenShot.png)
+
+
 ## Features
 - Smooth player movement (4-directional)
 - Procedurally generated obstacles
@@ -15,4 +19,4 @@ A 2D endless runner game built with PyGame where the player navigates a rocket t
 
 ## How to Run
 - pip install pygame
-- python 2D_Space_Runner_Game.py
+- python main.py
