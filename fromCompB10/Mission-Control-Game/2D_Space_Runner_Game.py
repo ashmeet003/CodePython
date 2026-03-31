@@ -92,7 +92,7 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Mission Control")
 clock = pygame.time.Clock()
 font = pygame.font.Font(None, 36)
-background = pygame.image.load("./images/spaceBackground.png").convert()
+background = pygame.image.load("images/spaceBackground.png").convert()
 background = pygame.transform.scale(background, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Sprites loading
